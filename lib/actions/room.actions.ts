@@ -5,6 +5,7 @@ import { liveblocks } from '../liveblocks';
 import { revalidatePath } from 'next/cache';
 import { getAccessType, parseStringify } from '../utils';
 import { redirect } from 'next/navigation';
+
 export const createDocument = async ({
 	userId,
 	email,
@@ -57,6 +58,7 @@ export const getDocument = async ({
 		console.log(`Error happened while getting a room: ${error}`);
 	}
 };
+
 export const updateDocument = async (roomId: string, title: string) => {
 	try {
 		const updatedRoom = await liveblocks.updateRoom(roomId, {
@@ -72,6 +74,7 @@ export const updateDocument = async (roomId: string, title: string) => {
 		console.log(`Error happened while updating a room: ${error}`);
 	}
 };
+
 export const getDocuments = async (email: string) => {
 	try {
 		const rooms = await liveblocks.getRooms({ userId: email });
@@ -121,6 +124,7 @@ export const updateDocumentAccess = async ({
 		console.log(`Error happened while updating a room access: ${error}`);
 	}
 };
+
 export const removeCollaborator = async ({
 	roomId,
 	email,
